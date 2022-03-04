@@ -1,9 +1,7 @@
 package com.hellking.higher
 
 import android.content.Context
-import android.icu.text.CaseMap
 import android.os.Bundle
-import android.provider.Settings.Global.getString
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -12,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,7 +25,6 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = Color.White) {
                     val context: Context = applicationContext
-                    val item = high()
                     Column {
                         TopBar()
                         Spacer(Modifier.height(8.dp))
@@ -40,26 +36,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//@Composable
-//fun high(): String {
-//    val modes = listOf<String>("Bong", "Chillum", "Joint")
-//    val previousMode = remember {
-//        mutableStateOf("")
-//    }
-//    var newMode = modes.random().toString()
-//    while (newMode == previousMode.value) {
-//        newMode = modes.random().toString()
-//    }
-//    previousMode.value = newMode
-//    return newMode
-//}
-
+/* Improvised this function to newHigh()
 fun high(): String {
     val modes = listOf<String>("Bong", "Chillum", "Joint")
-    return modes.shuffled().first()
-    //return modes.random().toString()
-}
-
+    return modes.random().toString()
+} */
 
 // TODO
 // Change font
@@ -77,18 +58,18 @@ fun TopBar() {
     )
 }
 
-@Composable
+/* @Composable
 fun Panda() { // wow, awesome name, ikr
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val toSmoke = remember { mutableStateOf(high()) }
+        val toSmoke = remember { mutableStateOf(newhigh()) }
         val openDialog = remember{ mutableStateOf(false) }
         Button(onClick = {
             openDialog.value = true;
-            toSmoke.value = high()
+            toSmoke.value = newhigh()
         }) {
             Text(text = "Click me")
         }
@@ -108,7 +89,7 @@ fun Panda() { // wow, awesome name, ikr
                 dismissButton = {
                     Button(onClick = {
                         openDialog.value = false;
-                        toSmoke.value = high()
+                        toSmoke.value = newhigh()
                     }) {
                         Text(text = "Close")
                     }
@@ -116,10 +97,4 @@ fun Panda() { // wow, awesome name, ikr
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun Preview() {
-    TopBar()
-}
+} */

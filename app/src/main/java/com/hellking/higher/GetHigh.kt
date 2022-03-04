@@ -7,18 +7,15 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
 
 @Composable
 fun GetHigh() {
@@ -29,7 +26,7 @@ fun GetHigh() {
     ) {
         val highState = remember { mutableStateOf(false) }
         val item = remember {
-            mutableStateOf(high())
+            mutableStateOf(newHigh())
         }
         val context = LocalContext.current
         if (highState.value) {
@@ -69,10 +66,16 @@ fun GetHigh() {
         Button(
             onClick = {
                 highState.value = true;
-                item.value = high()
+                item.value = newHigh()
             }
         ) {
            Text(text = "Let's Bake") 
         }
     }
+}
+
+
+fun newHigh():String {
+    val modes = listOf<String>("Bong", "Chillum", "Joint")
+    return modes.random().toString()
 }
