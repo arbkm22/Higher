@@ -16,6 +16,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.hellking.higher.data.Modes
 
 @Composable
 fun GetHigh() {
@@ -26,7 +27,7 @@ fun GetHigh() {
     ) {
         val highState = remember { mutableStateOf(false) }
         val item = remember {
-            mutableStateOf(newHigh())
+            mutableStateOf(Modes.newHigh())
         }
         val context = LocalContext.current
         if (highState.value) {
@@ -66,16 +67,10 @@ fun GetHigh() {
         Button(
             onClick = {
                 highState.value = true;
-                item.value = newHigh()
+                item.value = Modes.newHigh()
             }
         ) {
            Text(text = "Let's Bake") 
         }
     }
-}
-
-
-fun newHigh():String {
-    val modes = listOf<String>("Bong", "Chillum", "Joint")
-    return modes.random().toString()
 }
