@@ -9,15 +9,17 @@ import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = Green200,
+    primaryVariant = Green000,
+    secondary = Blue100,
+    background = Color.White
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = Green100,
+    primaryVariant = Green300,
+    secondary = Blue200,
+    background = Color.White
 
     /* Other default colors to override
     background = Color.White,
@@ -40,11 +42,11 @@ fun HigherTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable
     }
     if (darkTheme) {
         systemUiController.setSystemBarsColor(
-            color = Color.Transparent
+            color = Green200
         )
     } else {
         systemUiController.setSystemBarsColor(
-            color = Color.White
+            color = Green100
         )
     }
 

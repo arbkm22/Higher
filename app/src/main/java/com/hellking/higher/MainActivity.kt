@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             HigherTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(color = Color.White) {
+                Surface(color = MaterialTheme.colors.background) {
                     val context: Context = applicationContext
                     Column {
                         TopBar()
@@ -54,7 +54,7 @@ fun TopBar() {
                 color = Color.Black,
                 fontSize = 32.sp
             )},
-        backgroundColor = Color.White
+        backgroundColor = MaterialTheme.colors.primary
     )
 }
 
