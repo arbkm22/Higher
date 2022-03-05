@@ -17,6 +17,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.hellking.higher.data.Modes
+import com.hellking.higher.data.Quotes
 
 @Composable
 fun GetHigh() {
@@ -59,7 +60,7 @@ fun GetHigh() {
             }
             Toast.makeText(
                 context,
-                item.value,
+                Quotes.quotely(item.value),
                 Toast.LENGTH_SHORT,
             ).show()
         }
